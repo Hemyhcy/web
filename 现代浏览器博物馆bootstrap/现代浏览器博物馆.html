@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>现代浏览器博物馆</title>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!--兼容ie-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"><!--移动端-->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	     <!--在这个里面去引入js标签，是为了让ie9以下的浏览器兼容h5的标签（包括语义化的标签这些）和支持响应式-->
+	    <!--[if lt IE 9]>
+	      <script src="js/html5shiv.js"></script>
+	      <script src="js/respond.min.js"></script>
+	    <![endif]-->
+	    <style type="text/css">
+	    	/*因为我们写的是响应式的布局，所以我们的图片也要是响应式的*/
+	    	img{ width: 100%; }
+	    	.hmy-carousel{ margin-top: 50px;}
+	    	
+	    	
+	    	/*一般不用他的类名，自己加一个有个性的类名即可*/
+	    	.hmy-carousel,.hmy-carousel  .item{
+	    		/*给轮播的容器设置一个高度*
+	    		 */
+	    		 height: 500px;
+	    		 overflow: hidden;
+	    	}
+	    	.carousel-caption{  /*pc端*/
+	    		/*检查发现源码样式中这个类的bottom设置的是固定高度：bottom:20px;我们把它覆盖掉*/
+	    	bottom:10%;}
+	    	/*兼容移动端*/             
+	     @media only screen and (max-width: 768px) {
+    		.carousel-caption{
+	    		bottom: 5%;
+	    	}
+	    	.hmy-carousel,.hmy-carousel  .item{
+	    		
+	    		 height: 200px;
+	    		 
+	    	}
+	    	}
+	    	
+	    	.hmy-thumbnail img{
+	    		/*三列布局中的图片不用响应式，默认为原来的大小即可*/
+	    		width: auto;
+	    	}
+	    	.hmy-threeC{ margin-top: 50px;}
+	    	.hmy-hr{
+    		margin: 50px auto;
+    	}
+    	.hmy-hr > hr{
+    		border:1px solid deeppink;
+    	}
+    	
+	    </style>
+	    
+	    
+	</head>
+	<body>
+		<!--1.导航条开始，navbar-fixed-top让导航条固定在顶部-->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		    	<!--这个下面的内容是页面到达一定宽度时显示的，因为是响应式的布局，所以到达一定宽度才会显示-->
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">		        
+	             <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">现代浏览器博物馆</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">综述<span class="sr-only">(current)</span></a></li>
+		        <li><a href="#">简述</a></li>
+		          <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">特点 <span class="caret"></span></a>
+		          <ul class="dropdown-menu" id="hmy-nav">
+		            <li><a href="#chrome">Chrome</a></li>
+		            <li><a href="#firefox">Firefox</a></li>
+		            <li><a href="#safari">Safari</a></li>
+		            <li><a href="#opera">Opear</a></li>
+		            <li><a href="#ie">IE</a></li>
+		          </ul>
+		        </li>
+		        <li><a href="javascript:;" data-target="#myModal" data-toggle="modal">关于</a></li>
+		      </ul>
+		     
+		     
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+</nav>
+		<!--1.导航条结束 -->
+		<!--2.轮播开始-->
+		<div id="carousel-example-generic" class="carousel slide hmy-carousel" data-ride="carousel" data-interval="2000">
+			  <!-- Indicators小圆点 -->
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+			  </ol>
+			
+			  <!-- Wrapper for slides 轮播的图片item-->
+			  <div class="carousel-inner" role="listbox">
+			    <div class="item active">
+			      <img src="images/chrome-big.jpg" >
+			      <div class="carousel-caption">
+			      <h2>chrome</h2> 
+			      </div>
+			    </div>
+			    <div class="item">
+			      <img src="images/firefox-big.jpg" >
+			      <div class="carousel-caption">
+			        <h2>firefox</h2> 
+			      </div>
+			    </div>
+			     <div class="item">
+			      <img src="images/ie-big.jpg" >
+			      <div class="carousel-caption">
+			        <h2>ie</h2>
+			      </div>
+			    </div>
+			     <div class="item">
+			      <img src="images/opera-big.jpg" >
+			      <div class="carousel-caption">
+			        <h2>opera</h2>
+			      </div>
+			    </div>
+			     <div class="item">
+			      <img src="images/safari-big.jpg" >
+			      <div class="carousel-caption">
+			        <h2>safari</h2>
+			      </div>
+			    </div>
+			  </div>
+			
+			  <!-- Controls 两个箭头-->
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+		<!--2.轮播结束-->
+		<!--2.缩略图开始-->
+		<div class="container  hmy-threeC">
+			<div class="row">
+			  <div class="col-md-4  hmy-thumbnail  text-center">			    
+			      <img src="images/chrome-logo-small.jpg" >
+			      <div class="caption">
+			        <h3>chrome</h3>
+			        <p>Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+			      </div>			    
+			  </div>
+			  
+			  <div class="col-md-4  hmy-thumbnail  text-center">			    
+			      <img src="images/firefox-logo-small.jpg" >
+			      <div class="caption">
+			        <h3>firefox</h3>
+			        <p>Mozilla Firefox，中文名通常称为“火狐”或“火狐浏览器”，是一个开源网页浏览器。。</p>
+			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+			      </div>			    
+			  </div>
+			  <div class="col-md-4  hmy-thumbnail  text-center">			    
+			      <img src="images/safari-logo-small.jpg" >
+			      <div class="caption">
+			        <h3>safari</h3>
+			        <p>Safari，是苹果计算机的最新操作系统Mac OS X中的浏览器。</p>
+			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+			      </div>			    
+			  </div>
+			</div>
+		</div>
+		<!--2.缩略图结束-->
+		<!--3.水平线开始--->
+		<div class="container  hmy-hr">
+			<hr />
+		</div>
+		<!--3.水平线结束--->
+		<!--4.标签页开始--->
+		<div class="container" id="hmy-tab">
+			  <!-- Nav tabs  标题-->
+			  <ul class="nav nav-tabs" role="tablist"   id="hmy-list">
+			    <li role="presentation" class="active"><a href="#chrome" aria-controls="chrome" role="tab" data-toggle="tab">chrome</a></li>
+			    <li role="presentation"><a href="#firefox" aria-controls="firefox" role="tab" data-toggle="tab">firefox</a></li>
+			    <li role="presentation"><a href="#ie" aria-controls="ie" role="tab" data-toggle="tab">ie</a></li>
+			    <li role="presentation"><a href="#opera" aria-controls="opera" role="tab" data-toggle="tab">opera</a></li>
+			     <li role="presentation"><a href="#safari" aria-controls="safari" role="tab" data-toggle="tab">safari</a></li>
+			  </ul>
+			
+			  <!-- Tab panes 内容 -->
+			  <div class="tab-content"  >
+			    
+	              <div role="tabpanel" class="tab-pane active" id="chrome">
+			    	<div class="container-fluid">
+			    	<div class="row">
+			    		<div class="col-md-7">
+			    			<h3>IE 你懂的</h3>
+								Internet Explorer，原称Microsoft Internet Explorer(6版本以前)和Windows Internet Explorer(7，8，9，10版本)， 简称IE，是美国微软公司推出的一款网页浏览器。它采用的排版引擎(俗称内核)为Trident。
+			    		</div>
+			    		<div class="col-md-5">
+			    			<img src="images/chrome-logo.jpg"/>
+			    		</div>
+			    	</div>
+			    	</div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="firefox">
+			    	
+			    	<div class="container-fluid">
+			    	<div class="row">
+			    		<div class="col-md-5">
+			    			<img src="images/firefox-logo.jpg"/>
+			    		</div>
+			    		<div class="col-md-7">
+			    			<h3>IE 你懂的</h3>
+								Internet Explorer，原称Microsoft Internet Explorer(6版本以前)和Windows Internet Explorer(7，8，9，10版本)， 简称IE，是美国微软公司推出的一款网页浏览器。它采用的排版引擎(俗称内核)为Trident。
+			    		</div>
+			    		
+			    	</div>
+			    	</div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="ie">
+			    	
+			    	<div class="container-fluid">
+			    	<div class="row">
+			    		<div class="col-md-7">
+			    			<h3>IE 你懂的</h3>
+								Internet Explorer，原称Microsoft Internet Explorer(6版本以前)和Windows Internet Explorer(7，8，9，10版本)， 简称IE，是美国微软公司推出的一款网页浏览器。它采用的排版引擎(俗称内核)为Trident。
+			    		</div>
+			    		<div class="col-md-5">
+			    			<img src="images/ie-logo.jpg"/>
+			    		</div>
+			    	</div>
+			    	</div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="opera">
+			    	
+			    	<div class="container-fluid">
+			    	<div class="row">
+			    		<div class="col-md-5">
+			    			<img src="images/opera-logo.jpg"/>
+			    		</div>
+			    		<div class="col-md-7">
+			    			<h3>IE 你懂的</h3>
+								Internet Explorer，原称Microsoft Internet Explorer(6版本以前)和Windows Internet Explorer(7，8，9，10版本)， 简称IE，是美国微软公司推出的一款网页浏览器。它采用的排版引擎(俗称内核)为Trident。
+			    		</div>
+			    		
+			    	</div>
+			    	</div>
+			    </div>
+			     <div role="tabpanel" class="tab-pane" id="safari">
+			    	
+			    	<div class="container-fluid">
+			    	<div class="row">
+			    		<div class="col-md-7">
+			    			<h3>IE 你懂的</h3>
+								Internet Explorer，原称Microsoft Internet Explorer(6版本以前)和Windows Internet Explorer(7，8，9，10版本)， 简称IE，是美国微软公司推出的一款网页浏览器。它采用的排版引擎(俗称内核)为Trident。
+			    		</div>
+			    		<div class="col-md-5">
+			    			<img src="images/safari-logo.jpg"/>
+			    		</div>
+			    	</div>
+			    	</div>
+			    </div>
+			    
+			  </div>
+
+		</div>
+		<!--4.标签页结束--->
+		<!--5.版权开始--->
+		<div class="container text-center">
+			&copy;hemy
+		</div>
+		<!--5.版权结束--->
+		<!--6.模态框开始--->
+		<div class="modal fade" tabindex="-1" role="dialog"  id="myModal">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">模态框</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>哈哈哈哈哈哈</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>		       
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<!--6.模态框结束--->
+	</body>
+	 <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    		$(function(){
+    	/*点击特点中的文字，跳转到相关的浏览器*/
+    		$("#hmy-nav > li > a").click(function(e){
+  			var href = $(this).attr("href");
+  			console.log("#hmy-list > li > a[href="+(href)+"]");
+  			$("#hmy-list > li > a[href="+(href)+"]").tab('show');
+  			//跳转到顶部
+  			$(document).scrollTop($("#hmy-tab").offset().top);
+  			e.preventDefault();
+  		})
+  		
+  	})
+    </script>
+</html>
